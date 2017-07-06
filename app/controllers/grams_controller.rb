@@ -18,6 +18,11 @@ class GramsController < ApplicationController
     end
   end
 
+  def show
+    @gram = Gram.find_by_id(params[:id])
+    return render_not_found if @gram.blank?
+  end
+
   def edit
     @gram = Gram.find_by_id(params[:id])
     return render_not_found if @gram.blank?
@@ -36,10 +41,12 @@ class GramsController < ApplicationController
     end
   end
 
-  def show
+  def destroy
     @gram = Gram.find_by_id(params[:id])
     return render_not_found if @gram.blank?
-  end
+    @gram.destroy
+    redirect_to root_path
+  end  
 
   private
 
