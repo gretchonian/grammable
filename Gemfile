@@ -69,5 +69,8 @@ gem "figaro"
 #carrierwave communicate with AS3
 gem "fog-aws"
 
+#add bootstrap
+gem 'bootstrap'
+
 
 
